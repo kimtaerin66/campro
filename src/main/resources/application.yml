@@ -1,0 +1,41 @@
+#==============================================================
+#
+#    _     ___   ____    _    _
+#   | |   / _ \ / ___|  / \  | |
+#   | |  | | | | |     / _ \ | |
+#   | |__| |_| | |___ / ___ \| |___
+#   |_____\___/ \____/_/   \_\_____|
+#
+#   TODO: Local environment
+#==============================================================
+
+taerin:
+  api-v1-path: /api/v1
+
+
+#=================================
+#    Spring Boot 기본 설정
+#=================================
+spring:
+  profiles:
+    active: local
+  jackson:
+    serialization:
+      indent_output: true
+    time-zone: Asia/Seoul
+  #    property-naming-strategy: LOWER_CAMEL_CASE      # 소문자 Camel Case
+
+#================================================
+#   DB 연결 정보
+#================================================
+datasource:
+  username : root
+  password : pass0001!
+  db_schema: taerin
+  jdbc-url: jdbc:log4jdbc:mariadb://172.16.3.29:3306/taerin?autoReconnect=true&serverTimezone=Asia/Seoul&useSSL=false&allowMultiQueries=true&useUnicode=ture&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&&allowMultiQueries=true
+
+#=================================
+#    Server 설정
+#=================================
+server:
+  port: 8081
